@@ -1,0 +1,161 @@
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	/*background: linear-gradient(to top, white, #654EA3);*/
+	background-color: #91dbdb;
+	height: 100%;
+	background-repeat: no-repeat;
+	font-family: 'Inconsolata', monospace;
+}
+
+button {
+	font-family: 'Inconsolata', monospace;
+
+}
+
+h1 {
+	font-size: 2em;
+}
+
+/*Intro screen*/
+.mainTitle {
+	text-align: center;
+	font-size: 4em;
+	margin: 10px 0 0 0;
+}
+
+.subTitle {
+	text-align: center;
+	font-size: 2em;
+	margin: 0;
+	text-decoration: underline;
+}
+
+p {
+	text-align: center;
+	font-size: 2em;
+	margin-top: 20px; 
+}
+
+.playBtns {
+	display: flex;
+}
+
+.playAgainst {
+	width: 50%;
+	margin: 20px;
+	font-size: 2em;
+}
+
+.startBtn {
+	flex-wrap: wrap;
+	width: 100%;
+	font-family: 'Inconsolata', monospace;
+	font-size: 2em;
+	font-weight: bolder;
+	text-decoration: underline;
+}
+
+/*Game screen*/
+.button {
+	/*background-image: url(../stones/images/stones1.png);*/
+	background-image: url(stone_img.png);
+	background-size: 100%;
+	background-repeat: no-repeat;
+	background-position: center;
+	width: 22vw;
+	height: 22vw;
+	margin: 10px;
+}
+button:hover {
+background-color: #81abd7;  
+}
+
+button {
+	background-color: transparent;
+	border: none;
+}
+
+.clicked {
+	background-color: #81abd7; 
+
+}
+
+.game {
+	display: flex;
+  	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+  	/*transform: rotate(90deg);*/
+}
+
+.row1, .row2, .row3 {
+	width: 100%;
+	margin: 0 auto;
+	height: 160px;
+}
+
+.endTurn, .title, .restart {
+	float: right;
+	align-items: flex-end;
+	vertical-align: middle;
+	margin: 0 20px 0 0;
+}
+
+.endTurn, .restart {
+	background-color: #91dbdb;
+	border: none;
+}
+
+
+.title {
+	line-height: 90px;
+	/*height: 16vw;*/
+}
+@media (min-width: 800px) {
+	.button {
+		width: 13vw;
+		height: 13vw;
+		margin:0;
+	}	
+	h1 {
+		height: 13vw;
+		font-size: 3em;
+	}
+	.endTurn, .restart {
+		font-size: 1em;
+	}
+	.row1, .row2, .row3 {
+		height: 130px;	
+	}
+}
+
+@media (min-width: 1000px) {
+	.game {
+		margin: 70px 20px;
+	}
+	.button {
+		width: 18vw;
+		height: 18vw;
+	}
+	.row1, .row2, .row3 {
+		margin: 0;
+		height: 30%
+	}
+	h1 {
+		font-size: 3em;
+	}
+	h2 {
+		font-size: 1.5em;
+	}
+}
+
+@media (min-width: 1600px) {
+	.button {
+		width: 16vw;
+		height: 16vw;
+	}
+}

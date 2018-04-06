@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Stones Game</title>
+	<link href="style.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
+</head>
+<body>
+    <header>    
+    <section class="preGame">
+        <h1 class="mainTitle">GAME OF STONES</h1> 
+        <h2 class="subTitle">How to Play Stones</h2>
+        <p>Stones are set up in three rows. Two players take it in turns to select any number of stones from one row.
+        A player loses if they are left with the last stone</p>
+        <div class="playBtns">
+            <button class="playAgainst">Play against a friend</button>
+            <button class="playAgainst">Play against the computer</button>
+        </div>
+            <button class="startBtn">Start</button>
+    </section>
+    </header>
+    <main>  
+        <section class="game">
+            <section class="row1">
+                <h1 class="title">GAME OF STONES</h1> 
+                <button class="button" id="btn1"></button>
+                <button class="button" id="btn2"></button>
+                <button class="button" id="btn3"></button>
+            </section>
+            <section class="row2">
+                <button class="button" id="btn4"></button>
+                <button class="button" id="btn5"></button>
+                <button class="button" id="btn6"></button>
+                <button class="button" id="btn7"></button>
+                <button class="restart"><h2>Restart</h2></button>
+                <button class="endTurn"><h2>Remove Stones</h2></button>
+            </section>
+            <section class="row3">
+                <button class="button" id="btn8"></button>
+                <button class="button" id="btn9"></button>
+                <button class="button" id="btn10"></button>
+                <button class="button" id="btn11"></button>
+                <button class="button" id="btn12"></button>
+            </section>
+            <h2><div class="instructions"></div></h2>
+         </section>
+    </main> 
+    
+    <!-- <script src="app.js"></script> -->
+    <script src="appCompMoves.js"></script>
+</body>
+</html>
