@@ -11,9 +11,24 @@ body {
 	font-family: 'Inconsolata', monospace;
 }
 
-button {
-	font-family: 'Inconsolata', monospace;
+.preGame {
+	margin: 50px;
+	display: block;
+	vertical-align: center;
 
+}
+
+.endGame {
+  	display: flex;
+  	justify-content: center;
+  	align-items: center;
+  	flex-direction: column;
+  	height: 90vh;
+  	width: 100vw;
+ 	background-color: #81abd7;
+  	text-align: center;
+	vertical-align: center;
+  }
 }
 
 h1 {
@@ -44,10 +59,14 @@ p {
 	display: flex;
 }
 
-.playAgainst {
+.playFriend, .playComp {
 	width: 50%;
 	margin: 20px;
 	font-size: 2em;
+	font-family: 'Inconsolata', monospace;
+	align-items: center;
+	align-self: center;
+	font-weight: bolder;
 }
 
 .startBtn {
@@ -61,7 +80,6 @@ p {
 
 /*Game screen*/
 .button {
-	/*background-image: url(../stones/images/stones1.png);*/
 	background-image: url(stone_img.png);
 	background-size: 100%;
 	background-repeat: no-repeat;
@@ -103,6 +121,7 @@ button {
 	align-items: flex-end;
 	vertical-align: middle;
 	margin: 0 20px 0 0;
+	font-family: 'Inconsolata', monospace;
 }
 
 .endTurn, .restart {
@@ -151,6 +170,7 @@ button {
 	h2 {
 		font-size: 1.5em;
 	}
+
 }
 
 @media (min-width: 1600px) {
