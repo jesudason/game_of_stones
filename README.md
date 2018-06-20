@@ -1,4 +1,4 @@
-#Game of Stones
+<h1>Game of Stones</h1>
 
 I learnt this game in the jungle of Phong Nga, Vietnam. It was a favourite among the locals. After showing friends in Australia and having them become obsessed with it, I thought it would make a fun project to build as I learn to code.
 
