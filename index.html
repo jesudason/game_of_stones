@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Stones Game</title>
-	<link href="style.css" rel="stylesheet" type="text/css">
+	<title>Game of Stones</title>
+	<link href="style2.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
     <header>    
@@ -20,26 +19,21 @@
     </section>
     </header>
     <main>
-        <aside class="endGame">
-              <!-- <form> -->
-                    <h2>GAME OVER</h2>
-                    <h1 class="compWins">COMPUTER WINS</h1>
-              <!-- </form> -->
-        </aside>
-        <section class="game">
+        <div class="displayWinner">
+        </div>
+        <section class="game" >
             <section class="row1">
-                <h1 class="title">GAME OF STONES</h1> 
                 <button class="button btnrow1" id="0"></button>
                 <button class="button btnrow1" id="1"></button>
                 <button class="button btnrow1" id="2"></button>
+                <button class="endTurn">Remove Stones</button>
             </section>
             <section class="row2">
                 <button class="button btnrow2" id="3"></button>
                 <button class="button btnrow2" id="4"></button>
                 <button class="button btnrow2" id="5"></button>
                 <button class="button btnrow2" id="6"></button>
-                <button class="restart"><h2>Restart</h2></button>
-                <button class="endTurn"><h2>Remove Stones</h2></button>
+                <button class="restart">New Game</button>
             </section>
             <section class="row3">
                 <button class="button btnrow3" id="7"></button>
@@ -48,7 +42,7 @@
                 <button class="button btnrow3" id="10"></button>
                 <button class="button btnrow3" id="11"></button>
             </section>
-            <h2><div class="instructions"></div></h2>
+                <div class="instructions"></div>
          </section>
     </main> 
     

@@ -2,14 +2,14 @@ var stonesDisplay = document.querySelector('.game');
 var playComp = document.querySelector('.playComp');
 var playFriend = document.querySelector('.playFriend');
 var preGame = document.querySelector('.preGame');
-var title = document.querySelector('.title');
 var restart = document.querySelector('.restart');
 var row1btns = document.querySelectorAll('.btnrow1');
 var row2btns = document.querySelectorAll('.btnrow2');
 var row3btns = document.querySelectorAll('.btnrow3');
-
-var player1;
-var player2;
+var displayWinner = document.querySelector('.displayWinner');
+var allBtns = document.querySelectorAll('.button');
+var endTurn = document.querySelector('.endTurn');
+var instructions = document.querySelector('.instructions');
 var playWho;
 var row1 = [0,1,2];
 var row2 = [3,4,5,6];
@@ -17,17 +17,11 @@ var row3 = [7,8,9,10,11];
 var allRows = [row1, row2, row3];
 var btnSet = [0,1,2,3,4,5,6,7,8,9,10,11];
 var remainingBtns = [0,1,2,3,4,5,6,7,8,9,10,11];
-var allBtns = document.querySelectorAll('.button');
-var endTurn = document.querySelector('.endTurn');
-var btnLength = allBtns.length;
-
 var whoseTurn = 'player1';
-var endGame = document.querySelector('.endGame');
-var instructions = document.querySelector('.instructions');
 instructions.textContent = "Player One starts";	
 
 stonesDisplay.style.display = 'none';
-endGame.style.display = 'none';
+displayWinner.style.display = 'none';
 
 // var reload = function() {
 // 	allBtns.forEach(function(el) {
@@ -77,6 +71,8 @@ var rmvCompStones = function() {
 		}
 	}
 }
+
+// sort rows to see if two rows have length of 1
 var sorted;	
 var rowSort = function() {
 	if (allRows.length === 3) {
@@ -117,11 +113,11 @@ var checkCompMove = function() {
 		else if (allRows[2].length === allRows[0].length && allRows[2].length !== 1) {
 			allRows.splice(1, 1);
 		}
-		else if ((allRows[0].length === 2 && allRows[1].length === 4 && allRows[2].length === 5) || (allRows[0].length === 3 && allRows[1].length === 2 && allRows[2].length === 1)) {
+		else if ((allRows[0].length === 2 && allRows[1].length === 4 && allRows[2].length === 5) || (allRows[0].length === 3 && allRows[1].length === 2 && allRows[2].length === 1) || (allRows[0].length === 2 && allRows[1].length === 3 && allRows[2].length === 1) || (allRows[0].length === 1 && allRows[1].length === 1 && allRows[2].length === 1) || (allRows[0].length === 1 && allRows[1].length === 4 && allRows[2].length === 5) || (allRows[0].length === 1 && allRows[1].length === 3 && allRows[2].length === 5)) {
 			allRows[Math.round(Math.random())].pop();
 		}
-		else if (allRows[0].length === 1 && allRows[1].length === 4 && allRows[2].length === 5) {
-			allRows[2].splice(1);
+		else if (allRows[0].length === 1 && allRows[1].length === 4 && allRows[2].length === 2) {
+			allRows[1].splice(3);
 		}
 		else if (allRows[0].length === 3 && allRows[1].length === 1 && allRows[2].length === 5) {
 			allRows[2].splice(2);
@@ -149,6 +145,8 @@ var checkCompMove = function() {
 	if (remainingBtns.length != 1) {	
 		instructions.textContent = "Player one, take your turn";
 		whoseTurn = 'player1';
+	} else {
+		instructions.textContent = "Computer Wins";
 	}
 }
 
@@ -164,7 +162,7 @@ var disableBtn = function(event) {
 			// debugger
 			instructions.textContent = "Row 1 selected. Please select another stone from row 1 or end your turn.";
 			// row1.length -= 1;
-			if (row1.length === 0 && btnLength !== 1) {
+			if (row1.length === 0 && remainingBtns.length !== 1) {
 				instructions.textContent = 'There are no more available moves. End your turn';
 			}
 		}
@@ -180,7 +178,7 @@ var disableBtn = function(event) {
 	
 			instructions.textContent = "Row 2 selected. Please select another stone from row 2 or end your turn.";
 			// row2.length -= 1;
-			if (row2.length === 0 && btnLength !== 1) {
+			if (row2.length === 0 && remainingBtns.length !== 1) {
 				instructions.textContent = 'There are no more available moves. End your turn';
 			}
 		}
@@ -215,41 +213,40 @@ var selectButton = function(event) {
 			}
 		}
 	}
-	btnLength -= 1;
+	remainingBtns.length -= 1;
 	clickedBtns = document.querySelectorAll('.clicked');
-
 }
-
+// game over function for P2P
 var gameOver = function() {
-	if (btnLength === 1 && whoseTurn === 'player1') {
+	if (remainingBtns.length === 1 && whoseTurn === 'player1') {
 		instructions.textContent = "Player 1, you lose!";
 	}
 
-	if (btnLength ===1 && whoseTurn === 'player2') {
+	if (remainingBtns.length ===1 && whoseTurn === 'player2') {
 		instructions.textContent = "Player 2, you lose!";
 	}
 }
 
-var removeBtns = function() {
+var removeStones = function() {
 	for (let el of clickedBtns) el.style.visibility = 'hidden';
 	allBtns.forEach(function(el) {
 		el.disabled = false;
 	});
 	removeRow();
-	if (playWho === 'computer') {
-		setTimeout(gameOver, 5000);
-
+	if (playWho = 'computer') {
 		if (remainingBtns.length === 1) {
 			instructions.textContent = "PLAYER 1 WINS"
+			document.querySelector('.displayWinner').visibility = 'visible';
+			displayWinner.textContent = "PLAYER 1 WINS";
 		} else {		
 			instructions.textContent = "Computer's turn";
 			setTimeout(checkCompMove, 2000);
 			whoseTurn = 'player2';
-		}
+		}	
 	}
 }
 
-
+// Selecting stones
 for (var i = 0; i < allBtns.length; i++) {	
 	allBtns[i].addEventListener('click', selectButton);
 }
@@ -257,7 +254,7 @@ for (var i = 0; i < allBtns.length; i++) {
 playComp.addEventListener('click', compGame);
 playFriend.addEventListener('click', friendGame);
 
-endTurn.addEventListener('click', removeBtns);
+endTurn.addEventListener('click', removeStones);
 // restart.addEventListener('click', reload);
 
 

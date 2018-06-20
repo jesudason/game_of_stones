@@ -136,8 +136,8 @@ button {
 }
 @media (min-width: 800px) {
 	.button {
-		width: 13vw;
-		height: 13vw;
+		width: 15vw;
+		height: 15vw;
 		margin:0;
 	}	
 	h1 {
